@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Preference category">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="check_box_preference_1"
+            android:title="Check box preference"
+            android:summary="google backup"/>
+
+        <EditTextPreference
+            android:dependency="check_box_preference_1"
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:title="Edit text preference"
+            android:summary="backup file name"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"/>
+
+        <ListPreference
+            android:dependency="check_box_preference_1"
+            android:entries="@array/list"
+            android:entryValues="@array/list"
+            android:defaultValue="1"
+            android:key="list_preference_1"
+            android:title="List preference"
+            android:summary="select sync type"/>
+
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:summary="notification"
+        android:title="notification">
+
+        <SwitchPreference
+            android:key="prefs_delay_idle"
+            android:summary="push_type"
+            android:switchTextOff="wake up"
+            android:switchTextOn="eal time"
+            android:title="notification type"/>
+
+    </PreferenceScreen>
+
+    <RingtonePreference
+        android:key="prefs_ringtones"
+        android:ringtoneType="ringtone"
+        android:showDefault="true"
+        android:showSilent="true"
+        android:summary="ringtone"
+        android:title="ringtone"/>
+
+    <Preference
+        android:summary="google site"
+        android:title="show google" >
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.google.com"/>
+
+    </Preference>
+
+</PreferenceScreen>
